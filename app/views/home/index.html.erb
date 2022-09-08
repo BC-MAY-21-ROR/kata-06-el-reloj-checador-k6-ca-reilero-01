@@ -1,9 +1,11 @@
 <div>
+<div class= "background">
 <h4>Fecha: <%= Time.now.strftime("%F")%> <h4>
 <h5>Hora <%= Time.now.strftime("%H:%M:%S")%> <h5>
-<%= form_for @empleyees do |f| %>
-     <%= f.label  :title %><br>
+<%= form_for :post do |f| %>
+     <%= f.label  :key %><br>
      <%= f.text_field :title%><br>
      <%= f.submit  %>
 <%end%>
+</div>
 </div>
