@@ -1,7 +1,49 @@
-.background {
-  display: flex;
-  background-color: #ff9100;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+body{
+  background-color: #FFC300;
+}
+
+.watch_container {
+  position: absolute;
+  width: 725px;
+  height: 694px;
+  left: 377px;
+  top: 196px;
+  border-radius: 200rem;
+  background: #FAF9F9;
+  .h4{
+    position: absolute;
+    width: 402px;
+    height: 80px;
+    left: 155px;
+    top: 155px;
+    padding: 20px;
+    color: #FFFFFF;
+    background: rgba(0, 18, 25, 0.96);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .h5{
+    position: absolute;
+    width: 302px;
+    height: 60px;
+    left: 198px;
+    top: 242px;
+    padding: 20px;
+    color: #FFFFFF;
+    background: rgba(0, 18, 25, 0.96);
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  form{
+    position: absolute;
+    width: 202px;
+    height: 56px;
+    left: 636px;
+    top: 749px;
+
+    background: #4895EF;
+    border-radius: 50px;
+  }
+
 }

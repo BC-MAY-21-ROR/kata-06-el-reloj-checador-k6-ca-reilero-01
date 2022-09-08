@@ -1,11 +1,13 @@
 <div>
-<div class= "background">
-<h4>Fecha: <%= Time.now.strftime("%F")%> <h4>
-<h5>Hora <%= Time.now.strftime("%H:%M:%S")%> <h5>
+<div class= "watch_container">
+<h4 class="h4"> <%= Time.now.strftime("%F")%> <h4>
+<h5 class="h5">Hora <%= Time.now.strftime("%H:%M:%S")%> <h5>
+<div class="form">
 <%= form_for :post do |f| %>
      <%= f.label  :key %><br>
      <%= f.text_field :title%><br>
      <%= f.submit  %>
 <%end%>
+</div>
 </div>
 </div>
