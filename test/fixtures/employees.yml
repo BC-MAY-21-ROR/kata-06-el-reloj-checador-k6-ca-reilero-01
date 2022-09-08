@@ -4,12 +4,12 @@ one:
   name: MyString
   email: MyString
   position: MyString
-  employee_num: 1
   private_number: 1
+  company: one
 
 two:
   name: MyString
   email: MyString
   position: MyString
-  employee_num: 1
   private_number: 1
+  company: two
