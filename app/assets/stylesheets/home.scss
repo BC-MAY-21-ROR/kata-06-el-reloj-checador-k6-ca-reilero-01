@@ -1,42 +1,43 @@
-body{
-  background-color: #FFC300;
+body {
+  background-color: #ffc300;
 }
 
 .watch_container {
   position: absolute;
   width: 725px;
   height: 694px;
-  left: 377px;
-  top: 196px;
-  border-radius: 200rem;
-  background: #FAF9F9;
+  left: 350px;
+  top: 160px;
 
-  .h4{
+  border-radius: 200rem;
+  background: #faf9f9;
+
+  .h4 {
     position: absolute;
     width: 402px;
     height: 80px;
     left: 155px;
     top: 155px;
     padding: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     background: rgba(0, 18, 25, 0.96);
     border-radius: 14px;
     text-align: center;
   }
-  .h5{
+  .h5 {
     position: absolute;
     width: 302px;
     height: 60px;
     left: 198px;
     top: 242px;
     padding: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     background: rgba(0, 18, 25, 0.96);
     border-radius: 14px;
     text-align: center;
   }
 
-  form{
+  form {
     position: absolute;
     width: 202px;
     height: 56px;
@@ -45,17 +46,17 @@ body{
     border-radius: 50px;
   }
 
-  .text-field{
+  .text-field {
     border: none;
-    background-color: #44565D;
+    background-color: #44565d;
     width: 300px;
     height: 50px;
     color: white;
     border-radius: 50px;
-
+    text-align: center;
   }
 
-  ::placeholder{
+  ::placeholder {
     color: white;
     padding-left: 10px;
   }
@@ -64,10 +65,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 100px;
   }
 
-  .button{
-    background: #4895EF;
+  .button {
+    background: #4895ef;
     color: white;
     border-radius: 50px;
     width: 140px;
@@ -75,5 +77,48 @@ body{
     border: 1px solid black;
     height: 40px;
   }
+}
 
+h1 {
+  position: fixed;
+  width: 281px;
+  height: 47px;
+  right: 70%;
+  top: 65px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 39px;
+  line-height: 47px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.button_login {
+  position: absolute;
+  width: 178px;
+  height: 60px;
+  left: 950px;
+  top: 65px;
+
+  background: #4895ef;
+  border-radius: 11px;
+  color: white;
+  font-family: "Inter";
+  font-size: 30px;
+  text-align: center;
+}
+.button_admin {
+  position: absolute;
+  width: 178px;
+  height: 60px;
+  left: 1150px;
+  top: 65px;
+
+  background: #4895ef;
+  border-radius: 14px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
 }
