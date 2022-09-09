@@ -1,79 +1,119 @@
-body{
-  background-color: #FFC300;
+body {
+  background-color: var(--yellow);
 }
 
 .watch_container {
-  position: absolute;
-  width: 725px;
-  height: 694px;
-  left: 377px;
-  top: 196px;
+  background: var(--white);
   border-radius: 200rem;
-  background: #FAF9F9;
+  height: 694px;
+  left: 350px;
+  position: absolute;
+  top: 160px;
+  width: 725px;
 
-  .h4{
-    position: absolute;
-    width: 402px;
+  .h4 {
+    background: var(--dark-grey);
+    border-radius: 14px;
+    color: var(--white);
     height: 80px;
     left: 155px;
-    top: 155px;
     padding: 20px;
-    color: #FFFFFF;
-    background: rgba(0, 18, 25, 0.96);
-    border-radius: 14px;
-    text-align: center;
-  }
-  .h5{
     position: absolute;
-    width: 302px;
+    text-align: center;
+    top: 155px;
+    width: 402px;
+  }
+  .h5 {
+    background: var(--dark-grey);
+    border-radius: 14px;
+    color: var(--white);
     height: 60px;
     left: 198px;
-    top: 242px;
     padding: 20px;
-    color: #FFFFFF;
-    background: rgba(0, 18, 25, 0.96);
-    border-radius: 14px;
+    position: absolute;
     text-align: center;
+    top: 242px;
+    width: 302px;
   }
 
-  form{
-    position: absolute;
-    width: 202px;
+  .form {
+    border-radius: 50px;
     height: 56px;
     left: 220px;
+    position: absolute;
     top: 400px;
-    border-radius: 50px;
+    width: 202px;
   }
 
-  .text-field{
+  .text-field {
+    background-color: var(--light-grey);
+    border-radius: 50px;
     border: none;
-    background-color: #44565D;
-    width: 300px;
+    color: var(--white);
     height: 50px;
-    color: white;
-    border-radius: 50px;
-
+    text-align: center;
+    width: 300px;
   }
 
-  ::placeholder{
-    color: white;
+  ::placeholder {
+    color: var(--white);
     padding-left: 10px;
   }
 
   .button-container {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
+    padding-left: 100px;
   }
 
-  .button{
-    background: #4895EF;
-    color: white;
+  .button {
+    background: var(--blue);
     border-radius: 50px;
-    width: 140px;
-    margin-top: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--black);
+    color: var(--white);
     height: 40px;
+    margin-top: 10px;
+    width: 140px;
   }
+}
 
+.watch-title {
+  color: var(--white);
+  font-family: "Inter";
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 400;
+  height: 47px;
+  line-height: 47px;
+  position: fixed;
+  right: 70%;
+  text-align: center;
+  top: 65px;
+  width: 281px;
+}
+.button_login {
+  background: var(--blue);
+  border-radius: 11px;
+  color: var(--white);
+  font-family: "Inter";
+  font-size: 30px;
+  height: 60px;
+  left: 950px;
+  position: absolute;
+  text-align: center;
+  top: 65px;
+  width: 178px;
+}
+.button_admin {
+  background: var(--blue);
+  border-radius: 14px;
+  color: var(--white);
+  font-size: 30px;
+  height: 60px;
+  left: 1150px;
+  position: absolute;
+  text-align: center;
+  top: 65px;
+  width: 178px;
 }
