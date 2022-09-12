@@ -1,0 +1,79 @@
+.body {
+  background-color: $yellow;
+}
+
+.watch_container {
+  background: $white;
+  border-radius: 200rem;
+  height: 694px;
+  left: 350px;
+  position: absolute;
+  top: 160px;
+  width: 725px;
+
+  .h4 {
+    background: $dark-grey;
+    border-radius: 14px;
+    color: $white;
+    height: 80px;
+    left: 155px;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 155px;
+    width: 402px;
+  }
+  .h5 {
+    background: $dark-grey;
+    border-radius: 14px;
+    color: $white;
+    height: 60px;
+    left: 198px;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 242px;
+    width: 302px;
+  }
+
+  .form {
+    border-radius: 50px;
+    height: 56px;
+    left: 220px;
+    position: absolute;
+    top: 400px;
+    width: 202px;
+  }
+
+  .text-field {
+    background-color: $light-grey;
+    border-radius: 50px;
+    border: none;
+    color: $white;
+    height: 50px;
+    text-align: center;
+    width: 300px;
+  }
+
+  ::placeholder {
+    color: $white;
+    padding-left: 10px;
+  }
+
+  .button-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+  }
+
+  .button {
+    background: $blue;
+    border-radius: 50px;
+    border: 1px solid $black;
+    color: $white;
+    height: 40px;
+    margin-top: 10px;
+    width: 140px;
+  }
+}

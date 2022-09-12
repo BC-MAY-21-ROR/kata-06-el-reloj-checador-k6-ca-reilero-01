@@ -1,18 +1,14 @@
 <div>
-     <h1 >Reloj checador</h1>
-     <div class= "watch_container">
-          <h4 class="h4"> <%= Time.now.strftime("%F")%> <h4>
-          <h5 class="h5">Hora <%= Time.now.strftime("%H:%M:%S")%> <h5>
-          <div class="form">
-               <%= form_for :post do |f| %>
-                    <%= f.text_field :title, placeholder:'Número privado', class:'text-field'%><br>
-                    <div class="button-container">
-                    <%= f.submit 'Check', class:'button' %>
-                    </div>
-               <%end%>
-          </div>
-     </div>
-     <button class="button_login">Login</button>
-     <button class="button_admin">Admin</button>
-
+	<div class= "watch_container">
+		<h4 class="h4"> <%= Time.now.strftime("%F")%> </h4>
+		<h5 class="h5">Hora <%= Time.now.strftime("%H:%M:%S")%> </h5>
+		<div class="form">
+			<%= form_for :post do |f| %>
+				<%= f.text_field :title, placeholder:'Número privado', class:'text-field'%><br>
+			<div class="button-container">
+				<%= f.submit 'Check', class:'button' %>
+			</div>
+			<%end%>
+		</div>
+	</div>
 </div>
