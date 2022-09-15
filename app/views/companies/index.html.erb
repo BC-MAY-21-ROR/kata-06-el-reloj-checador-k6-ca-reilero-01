@@ -2,4 +2,6 @@
 
 <% @companies.each do |company| %>
   <p class="title"><%= company.name %></p>
+  <%= link_to  company.name, company, class:'title' %>
+  <ul>
 <% end%>
