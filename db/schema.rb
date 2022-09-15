@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_10_002859) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
   create_table "attendances", force: :cascade do |t|
     t.datetime "checkin"
@@ -32,15 +30,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_002859) do
     t.datetime "updated_at", null: false
   end
 
-  create_table 'employees', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.string 'position'
-    t.integer 'private_number'
-    t.bigint 'company_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['company_id'], name: 'index_employees_on_company_id'
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "position"
+    t.integer "private_number"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -53,6 +51,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_002859) do
     t.index ["employee_id"], name: "index_reports_on_employee_id"
   end
 
+<<<<<<< HEAD
+  create_table "reports", force: :cascade do |t|
+    t.integer "average_time_month"
+    t.integer "absence_month"
+    t.integer "attendance_day"
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_reports_on_employee_id"
+  end
+
+=======
+>>>>>>> 0d6d366477cb3d7b2461f6e29264095cbfda5fc4
   add_foreign_key "attendances", "employees"
   add_foreign_key "employees", "companies"
   add_foreign_key "reports", "employees"

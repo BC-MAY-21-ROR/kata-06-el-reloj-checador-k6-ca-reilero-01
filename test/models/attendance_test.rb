@@ -1,7 +1,7 @@
 require "test_helper"
 
 class AttendanceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'validation' do
+    assert_not_equal attendances(:two).checkin, attendances(:three).checkin, 'comparate uniqueness'
+  end
 end
