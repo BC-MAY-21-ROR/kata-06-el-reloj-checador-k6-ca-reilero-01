@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    #@companies = Company.find(params[:id])
+    @companies = Company.find(params[:id])
   end
   
   def new
@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
+    @companies = Company.find(params[:id])
   end
 
   def update
