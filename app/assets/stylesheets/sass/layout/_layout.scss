@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--yellow);
+  background-color: $yellow;
   display: flex;
   height: 150px;
   justify-content: flex-end;
@@ -11,18 +11,18 @@
 }
 
 #left {
-  left: 950px;
+  left: 898px;
 }
 
 .watch-title {
-  color: var(--white);
+  color: $white;
   font-family: "Inter";
   font-size: 39px;
   font-style: normal;
   font-weight: 400;
   height: 47px;
   line-height: 47px;
-  position: fixed;
+  position: absolute;
   right: 70%;
   text-align: center;
   top: 65px;
