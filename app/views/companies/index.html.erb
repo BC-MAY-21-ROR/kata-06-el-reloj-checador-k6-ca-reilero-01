@@ -2,6 +2,9 @@
 
 <% @companies.each do |company| %>
   <p class="title"><%= company.name %></p>
+  <div>
   <%= link_to  company.name, company, class:'title' %>
-  <ul>
+  <%= link_to 'Editar', edit_company_path(company.id) %>
+  <%= link_to 'Eliminar', company_path(company.id), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro de eliminar esta sucursal?" } %>
+  </div>
 <% end%>

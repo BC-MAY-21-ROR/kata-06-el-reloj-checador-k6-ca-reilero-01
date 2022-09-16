@@ -25,15 +25,19 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @companies.update(company_params)
-    if @companies.update company_params
+    @companies= Company.find(params[:id])
+    if @companies.update(company_params)
       redirect_to companies_path
+    else
+      render :edit, status: :unprocessable_entity
     end 
   end
 
-  def delete
+  def destroy
+    @companies= Company.find(params[:id])
     @companies.destroy
-    redirect_to companies_path
+    redirect_to companies_path,
+    status: :see_other
   end
 
   private
@@ -41,3 +45,5 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:name,:address)
   end
 end
+
+#def destroy @article = Article.find(params[:id]) @article.destroy redirect_to root_path, status: :see_other end private def article_params params.require(:article).permit(:title, :body) end
