@@ -1,0 +1,39 @@
+<%=form_with model: @employees do |f| %>       
+  <div class="form-container">
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Name' %>
+        <%= f.text_field :name, class:"form-title" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'email' %>
+          <%= f.text_field :email, class:"form-title" %>               
+        </div>
+    </div>      
+     <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'position' %>
+          <%= f.text_field :position, class:"form-title" %>               
+        </div>
+    </div>   
+     <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'private_number' %>
+          <%= f.text_field :private_number, class:"form-title" %>               
+        </div>
+    </div>
+    <div class="form-group"> 
+    <div class="col-md-8 form-sub"> 
+    <%= f.label 'Company' %>
+    <%= collection_select(:employee, :company_id, Company.all, :id, :name, {}, {:multiple => false}) %>
+
+    </div>           
+    <div class="form-group">
+      <div class="col-md-12 text-center" >
+        <%= f.submit message, class:"btn btn-primary btn-lg m-5" %>
+      </div>
+    </div> 
+  </div>
+<%end%>

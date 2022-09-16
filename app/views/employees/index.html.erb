@@ -4,4 +4,8 @@
   <p><%= employee.name %></p>
   <p><%= employee.email %></p>
   <p><%= employee.id %></p>
+  <%= link_to 'Editar', edit_employee_path(employee.id) %>
+  <%= link_to 'Eliminar', employee_path(employee.id), data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro de eliminar este empleado?" } %>
+
+
 <% end%>

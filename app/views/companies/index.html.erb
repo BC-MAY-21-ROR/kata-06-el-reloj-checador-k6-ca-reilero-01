@@ -1,7 +1,6 @@
 <h1 class="title">Sucursales</h1>
 
 <% @companies.each do |company| %>
-  <p class="title"><%= company.name %></p>
   <div>
   <%= link_to  company.name, company, class:'title' %>
   <%= link_to 'Editar', edit_company_path(company.id) %>
