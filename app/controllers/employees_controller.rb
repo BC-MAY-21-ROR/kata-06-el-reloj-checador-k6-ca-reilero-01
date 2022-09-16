@@ -14,7 +14,7 @@ class EmployeesController < ApplicationController
   end 
 
   def create
-    @employees = Employee.create(Employee_params)
+    @employees = Employee.create(employee_params)
     if @employees.persisted?
       redirect_to employees_path
     end 
@@ -26,7 +26,7 @@ class EmployeesController < ApplicationController
 
   def update
     @employees= Employee.find(params[:id])
-    if @employees.update(Employee_params)
+    if @employees.update(employee_params)
       redirect_to employees_path
     else
       render :edit, status: :unprocessable_entity
@@ -41,9 +41,7 @@ class EmployeesController < ApplicationController
   end
 
   private
-  def Employee_params
-    params.require(:Employee).permit(:name,:email, :position, :private_number, :company_id)
+  def employee_params
+    params.require(:employee).permit(:name,:email, :position, :private_number, :company_id)
   end
 end
-
-
