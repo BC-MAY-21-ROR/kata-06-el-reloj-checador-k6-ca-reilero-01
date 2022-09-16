@@ -27,7 +27,8 @@
     <div class="form-group"> 
     <div class="col-md-8 form-sub"> 
     <%= f.label 'Company' %>
-    <%= f.text_field :company_id %>
+    <%= collection_select(:employee, :company_id, Company.all, :id, :name, {}, {:multiple => false}) %>
+
     </div>           
     <div class="form-group">
       <div class="col-md-12 text-center" >
