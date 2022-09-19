@@ -12,9 +12,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_906_005_846) do
+ActiveRecord::Schema[7.0].define(version: 20_220_910_002_859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'attendances', force: :cascade do |t|
+    t.datetime 'checkin'
+    t.datetime 'checkout'
+    t.bigint 'employee_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['employee_id'], name: 'index_attendances_on_employee_id'
+  end
 
   create_table 'companies', force: :cascade do |t|
     t.string 'name'
@@ -34,5 +43,17 @@ ActiveRecord::Schema[7.0].define(version: 20_220_906_005_846) do
     t.index ['company_id'], name: 'index_employees_on_company_id'
   end
 
+  create_table 'reports', force: :cascade do |t|
+    t.integer 'average_time_month'
+    t.integer 'absence_month'
+    t.integer 'attendance_day'
+    t.bigint 'employee_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['employee_id'], name: 'index_reports_on_employee_id'
+  end
+
+  add_foreign_key 'attendances', 'employees'
   add_foreign_key 'employees', 'companies'
+  add_foreign_key 'reports', 'employees'
 end

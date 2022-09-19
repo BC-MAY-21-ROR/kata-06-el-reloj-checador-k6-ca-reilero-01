@@ -13,3 +13,10 @@ two:
   position: MyString
   private_number: 1
   company: two
+
+three:
+  name: MyString
+  email: MyString
+  position: MyString
+  private_number: 1
+  company: two
