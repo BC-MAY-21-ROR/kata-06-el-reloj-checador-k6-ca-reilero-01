@@ -53,6 +53,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_10_002859) do
     t.index ["employee_id"], name: "index_reports_on_employee_id"
   end
 
+<<<<<<< HEAD
+  create_table "reports", force: :cascade do |t|
+    t.integer "average_time_month"
+    t.integer "absence_month"
+    t.integer "attendance_day"
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_reports_on_employee_id"
+  end
+
+=======
+>>>>>>> 0d6d366477cb3d7b2461f6e29264095cbfda5fc4
   add_foreign_key "attendances", "employees"
   add_foreign_key "employees", "companies"
   add_foreign_key "reports", "employees"
