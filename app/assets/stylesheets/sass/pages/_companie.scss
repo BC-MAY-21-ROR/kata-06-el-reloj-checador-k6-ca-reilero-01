@@ -1,0 +1,40 @@
+.title_main {
+  text-align: center;
+  margin-top: 200px;
+  color: $white;
+  font-family: "Inter";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  height: 47px;
+  line-height: 47px;
+}
+.title {
+  background-color: $yellow;
+  margin-top: 200px;
+}
+
+.form-container {
+  margin-top: 200px;
+}
+
+.table {
+  border: solid 1px $black;
+  text-align: center;
+  width: 50%;
+}
+
+.container_table {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.button_new {
+  margin-top: 300px;
+}
+
+.container_form {
+  text-align: center;
+  justify-content: center;
+}
