@@ -1,35 +1,35 @@
-<%=form_with model: @employees do |f| %>       
+<%=form_with model: @employees do |f| %>
   <div class="form-container">
     <div class="form-group">
       <div class="col-md-8 form-sub">
-        <%= f.label 'Name' %>
+        <%= f.label 'Nombre' %>
         <%= f.text_field :name, class:"form-title" %>
-        </div>
+      </div>
     </div>
     <div class="form-group">
-        <div class="col-md-8 form-sub">
-          <%= f.label 'email' %>
-          <%= f.text_field :email, class:"form-title" %>               
-        </div>
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Email' %>
+        <%= f.text_field :email, class:"form-title" %>
+      </div>
     </div>      
-     <div class="form-group">
-        <div class="col-md-8 form-sub">
-          <%= f.label 'position' %>
-          <%= f.text_field :position, class:"form-title" %>               
-        </div>
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Posición' %>
+        <%= f.text_field :position, class:"form-title" %>
+      </div>
     </div>   
-     <div class="form-group">
-        <div class="col-md-8 form-sub">
-          <%= f.label 'private_number' %>
-          <%= f.text_field :private_number, class:"form-title" %>               
-        </div>
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Número privado' %>
+        <%= f.text_field :private_number, class:"form-title" %>
+      </div>
     </div>
     <div class="form-group"> 
-    <div class="col-md-8 form-sub"> 
-    <%= f.label 'Company' %>
-    <%= collection_select(:employee, :company_id, Company.all, :id, :name, {}, {:multiple => false}) %>
-
-    </div>           
+      <div class="col-md-8 form-sub"> 
+        <%= f.label 'Sucursal' %>
+        <%= collection_select(:employee, :company_id, Company.all, :id, :name, {}, {:multiple => false}) %>
+      </div>
+    </div> 
     <div class="form-group">
       <div class="col-md-12 text-center" >
         <%= f.submit message, class:"button_e button_header button_new" %>

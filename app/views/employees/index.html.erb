@@ -3,11 +3,10 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="row" >Name</th>
+        <th scope="row" >Nombre</th>
         <th scope="row" >Email</th>
         <th scope="row" >Id</th> 
-        <th scope="row" ></th> 
-        <th scope="row" ></th>
+        <th scope="row" colspan="2">Opciones</th> 
       </tr>
     </thead>
     <tbody>
@@ -17,8 +16,8 @@
           <td class="title"><%= employee.name %></td>
           <td class="title"><%= employee.email %></td>
           <td class="title"><%= employee.id %></td>
-          <td><%=button_to 'Edit', edit_employee_path(employee.id), method: :get, class: 'button_e'%></td>
-          <td><%=button_to'Delete', employee_path(employee.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta empleado?'}}, class: 'button_e'%></td>
+          <td><%=button_to 'Editar', edit_employee_path(employee.id), method: :get, class: 'button_e'%></td>
+          <td><%=button_to'Borrar', employee_path(employee.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar este empleado?'}}, class: 'button_e'%></td>
         </tr> 
         <%end%>
       </tr>

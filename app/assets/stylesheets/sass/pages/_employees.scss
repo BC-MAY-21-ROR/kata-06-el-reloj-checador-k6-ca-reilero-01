@@ -1,6 +1,4 @@
 .title_empl {
-   text-align: center;
-   margin-top: 200px;
    color: $white;
    font-family: "Inter";
    font-size: 50px;
@@ -8,6 +6,8 @@
    font-weight: 400;
    height: 47px;
    line-height: 47px;
+   margin-top: 200px;
+   text-align: center;
 }
 
 .title {
@@ -23,14 +23,12 @@
  }
  
  .container_table {
-   margin-top: 40px;
    display: flex;
    justify-content: center;
+   margin-top: 40px;
  }
  
- 
- 
  .container_form {
-   text-align: center;
    justify-content: center;
+   text-align: center;
  }
