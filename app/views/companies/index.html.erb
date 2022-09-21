@@ -18,7 +18,7 @@
           <td class="title"><%= company.address %></td>
           <td class="title"><%= company.id %></td>
           <td><%=button_to 'Edit', edit_company_path(company.id), method: :get, class: 'button_e'%></td>
-          <td><%=button_to'Delete', company_path(company.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta sucursal?'}}, class: 'button_e'%></td>
+          <td><%=button_to 'Delete', company_path(company.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta sucursal?'}}, class: 'button_e'%></td>
         </tr>
         <%end%> 
       </tr>

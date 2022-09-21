@@ -3,9 +3,6 @@
 require 'test_helper'
 
 class EmployeeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   test 'validation' do
     employee = Employee.new
     assert_not employee.save, 'saved company without name, email, position, private_number'
