@@ -3,26 +3,26 @@
   <table class="table">
     <thead>
       <tr>
-      <th scope="row" >Name</th>
-      <th scope="row" >Email</th>
-      <th scope="row" >Id</th> 
-      <th scope="row" ></th> 
-      <th scope="row" ></th>
-      <th scope="row" ></th>
+        <th scope="row" >Name</th>
+        <th scope="row" >Email</th>
+        <th scope="row" >Id</th> 
+        <th scope="row" ></th> 
+        <th scope="row" ></th>
       </tr>
     </thead>
     <tbody>
-  </tr>
-  <% @employees.each do |employee| %>
-  <td class="title"><%= employee.name %></td>
-  <td class="title"><%= employee.email %></td>
-  <td class="title"><%= employee.id %></td>
-  <td><%=button_to 'Edit', edit_employee_path(employee.id), method: :get, class: 'button_e'%></td>
-  <td><%=button_to'Delete', employee_path(employee.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta empleado?'}}, class: 'button_e'%></td>
-  </tr> 
-  </tr>
-    <%end%>
+      <tr>
+        <% @employees.each do |employee| %>
+        <tr>
+          <td class="title"><%= employee.name %></td>
+          <td class="title"><%= employee.email %></td>
+          <td class="title"><%= employee.id %></td>
+          <td><%=button_to 'Edit', edit_employee_path(employee.id), method: :get, class: 'button_e'%></td>
+          <td><%=button_to'Delete', employee_path(employee.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta empleado?'}}, class: 'button_e'%></td>
+        </tr> 
+        <%end%>
+      </tr>
   </tbody>
 </table>
 </div>
-  <%=button_to 'Nuevo empleado', '/employees/new',method: :get, class: 'button_e new_Employees'%></td>
+<%=button_to 'Nuevo empleado', '/employees/new',method: :get, class: 'button_e new_Employees'%>
