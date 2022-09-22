@@ -11,13 +11,21 @@
   </head>
 
   <body class="body">
+    
     <header>
       <nav class="navbar ">
         <h1 class="watch-title" >Reloj checador</h1>
-        <button class="button_header" id="left">Login</button>
-	      <button class="button_header" id="s">Admin</button> 
+        
+        <% if signed_in? %>
+        <%=button_to 'Cerrar Sesión', destroy_user_session_path, class:'button_header', method: :delete, form: {data: {turbo_confirm: 'Desea cerrar sesión?'}} %>
+        <%else%>
+        <%=button_to 'Login',new_user_session_path, method: :get, class: 'button_header button_login'%>
+        <%=button_to 'Registrarse',new_user_registration_path,method: :get, class: 'button_header'%> 
+        <% end %>
       </nav>
     </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     
   </body>
