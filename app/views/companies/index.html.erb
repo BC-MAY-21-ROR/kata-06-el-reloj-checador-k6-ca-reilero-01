@@ -1,27 +1,27 @@
-<h2 class="title_main">Company</h2>
+<h2 class="title_main">Sucursales</h2>
 <div class="container_table">
   <table class="table">
     <thead>
       <tr>
-      <th scope="row" >Name</th>
-      <th scope="row" >Address</th>
-      <th scope="row" >Id</th> 
-      <th scope="row" ></th> 
-      <th scope="row" ></th>  
+        <th scope="row" >Nombre</th>
+        <th scope="row" >Dirección</th>
+        <th scope="row" >Id</th> 
+        <th scope="row" colspan="2">Opciones</th> 
       </tr>
     </thead>
     <tbody>
       <tr>
         <% @companies.each do |company| %>
         <tr>
-        <td class="title"><%= link_to  company.name, company, class:'title' %></td>
-        <td class="title"><%= company.address %></td>
-        <td class="title"><%= company.id %></td>
-        <td><%=button_to 'Edit', edit_company_path(company.id), method: :get, class: 'button_e'%></td>
-        <td><%=button_to'Delete', company_path(company.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta sucursal?'}}, class: 'button_e'%></td>
+          <td class="title"><%= company.name %></td>
+          <td class="title"><%= company.address %></td>
+          <td class="title"><%= company.id %></td>
+          <td><%=button_to 'Editar', edit_company_path(company.id), method: :get, class: 'button_e'%></td>
+          <td><%=button_to'Borrar', company_path(company.id), method: :delete, form: {data: {turbo_confirm: 'Estas seguro de eliminar esta sucursal?'}}, class: 'button_e'%></td>
         </tr>
-        <% end%> 
+        <%end%> 
       </tr>
     </tbody>
   </table>
 </div>
+<%=button_to 'Nueva sucursal', '/companies/new',method: :get, class: 'button_e new_Employees'%>

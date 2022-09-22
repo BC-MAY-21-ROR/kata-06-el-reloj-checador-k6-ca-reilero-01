@@ -1,0 +1,21 @@
+<%=form_with model: @companies do |f| %>       
+  <div class="form-container">
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Nombre' %>
+        <%= f.text_field :name, class:"form-title" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'Dirección' %>
+        <%= f.text_field :address, class:"form-title" %>               
+      </div>
+    </div>            
+    <div class="form-group">
+      <div class="col-md-12 text-center" >
+        <%= f.submit message, class:"btn btn-primary btn-lg m-5" %>
+      </div>
+    </div>  
+  </div>
+<%end%>
