@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   def index
     @employees = Employee.all
   end
@@ -15,6 +16,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employees = Employee.create(employee_params)
+    @employees.user = current_user
     if @employees.persisted?
       redirect_to employees_path
     end 
