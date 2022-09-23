@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :employees
+  resources :attendances
 
   get '/admin', to: 'admin#index'
 
