@@ -1,0 +1,15 @@
+.admin-home{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-title {
+  color: $white;
+}
+
+.admin_button {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  width: 150px;
+}

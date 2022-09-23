@@ -1,3 +1,4 @@
+<% if signed_in? && current_user.admin==true %>
 <h2 class="title_main">Sucursales</h2>
 <div class="container_table">
   <table class="table">
@@ -25,3 +26,6 @@
   </table>
 </div>
 <%=button_to 'Nueva sucursal', '/companies/new',method: :get, class: 'button_e new_Employees'%>
+<% else %>
+"No esta autorizado"
+<% end %>

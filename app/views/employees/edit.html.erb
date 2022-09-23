@@ -1,5 +1,5 @@
 <% if user_signed_in? && current_user.admin==true %>
-<%= render partial: 'form', locals: {message: 'editar empleado'}  %>
+  <%= render partial: 'form', locals: {message: 'editar empleado'}  %>
 <% else %>
-"No esta autorizado"
+  "No esta autorizado"
 <% end %>

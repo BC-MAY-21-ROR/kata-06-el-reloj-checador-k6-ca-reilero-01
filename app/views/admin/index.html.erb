@@ -1,0 +1,9 @@
+<% if signed_in? && current_user.admin==true %>
+  <div class="admin-home">
+    <h1 class="admin-title">Panel de Administrador</h1>
+    <%=button_to 'Ver Sucursales', '/companies',method: :get, class: 'button_e admin_button'%>
+    <%=button_to 'Ver Empleados', '/employees',method: :get, class: 'button_e admin_button'%>
+  </div>
+<% else %>
+  "No esta autorizado"
+<% end %>
