@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RelojChecador</title>
+    <title>Moview Reseñas de Peliculas</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,13 +14,14 @@
     
     <header>
       <nav class="navbar ">
-        <h1 class="watch-title" >Reloj checador</h1>
-        
+        <%= link_to root_path do%>
+          <h1 class="watch-title" >Reloj checador</h1> 
+        <%end%>
         <% if signed_in? %>
-        <%=button_to 'Cerrar Sesión', destroy_user_session_path, class:'button_header', method: :delete, form: {data: {turbo_confirm: 'Desea cerrar sesión?'}} %>
+          <%=button_to 'Cerrar Sesión', destroy_user_session_path, class:'button_header button_off', method: :delete, form: {data: {turbo_confirm: 'Desea cerrar sesión?'}} %>
+          <%=button_to 'Admin', '/admin',method: :get, class: 'button_header button_admin'%>
         <%else%>
-        <%=button_to 'Login',new_user_session_path, method: :get, class: 'button_header button_login'%>
-        <%=button_to 'Registrarse',new_user_registration_path,method: :get, class: 'button_header'%> 
+          <%=button_to 'Login',new_user_session_path, method: :get, class: 'button_header button_login'%>
         <% end %>
       </nav>
     </header>

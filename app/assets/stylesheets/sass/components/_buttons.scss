@@ -3,7 +3,7 @@
   border-radius: 11px;
   color: $white;
   font-family: "Inter";
-  font-size: 30px;
+  font-size: 1.3rem;
   height: 60px;
   position: absolute;
   text-align: center;
@@ -24,5 +24,13 @@
 }
 
 .button_login {
-  left: 600px;
+  left: 1000px;
+}
+
+.button_admin {
+  left: 700px;
+}
+
+.button_off {
+  left: 900px;
 }
