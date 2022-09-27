@@ -16,14 +16,27 @@ class AttendancesController < ApplicationController
   def create
     if params[:commit] == "check-in" 
       checkin
-    end 
+    #if params[:commit] == "check-out"
+      #checkout
+    #end 
+    end
   end
   def checkin
+<<<<<<< HEAD
     @attendance = Attendance.create(atendance_params)
+=======
+    @attendances = Attendance.create(attendances_params.merge(:checkin => Time.now))
+>>>>>>> Fix: Checkin works properly with the current time
     if @attendances.persisted?
     redirect_to root_path
     end
   end
+
+  #def checkout
+   # @attendance = Attendance.find(params[:id])
+    #if @attendances.update(attendances_params.merge(:checkout => Time.now))
+    #end
+  #end  
 
   #def edit
 #  @attendances = Attendance.find(params[:id])

@@ -6,7 +6,12 @@
 			<%= form_with   model: @attendances do |f| %>
 				<%= f.text_field :employee_id,  placeholder: "numero de empleado", class:'text-field'%><br>
 				<div class="button-container">
+<<<<<<< HEAD
 					<%= f.submit  "check-in", class: 'button'%>
+=======
+					<%= f.submit "check-in", class: 'button'%>
+					<%= f.submit "check-out", class: 'button'%>
+>>>>>>> Fix: Checkin works properly with the current time
 				</div>
 			<%end%>
 		</div>
