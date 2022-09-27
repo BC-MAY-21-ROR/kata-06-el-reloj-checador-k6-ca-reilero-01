@@ -16,10 +16,11 @@ class AttendancesController < ApplicationController
   def create
     if params[:commit] == "check-in" 
       checkin
-    #if params[:commit] == "check-out"
-      #checkout
-    #end 
     end
+    if params[:commit] == "check-out"
+      checkout
+    end 
+  
   end
 
   def checkin
@@ -29,11 +30,12 @@ class AttendancesController < ApplicationController
     end
   end
 
-  #def checkout
-   # @attendance = Attendance.find(params[:id])
-    #if @attendances.update(attendances_params.merge(:checkout => Time.now))
-    #end
-  #end  
+  def checkout
+    @attendances = Attendance.find_by(attendances_params)
+    if @attendances.update(attendances_params.merge(:checkout => Time.now))
+     redirect_to root_path
+    end
+  end  
 
   #def edit
 #  @attendances = Attendance.find(params[:id])
