@@ -16,7 +16,7 @@ class EmployeesController < ApplicationController
 
   def create
     @employees = Employee.create(employee_params)
-    @employees.user = current_user
+    #@employees.user = current_user
     if @employees.persisted?
       redirect_to employees_path
     end 
