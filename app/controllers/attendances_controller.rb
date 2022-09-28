@@ -20,9 +20,10 @@ class AttendancesController < ApplicationController
     if params[:commit] == "check-out"
       checkout
     end 
-  
+
   end
   def checkin
+<<<<<<< HEAD
 <<<<<<< HEAD
     @attendance = Attendance.create(atendance_params)
 =======
@@ -31,12 +32,31 @@ class AttendancesController < ApplicationController
     if @attendances.persisted?
     redirect_to root_path
     end
+=======
+    @attendances = Attendance.find_by(attendances_params)
+    if @attendances.nil? || @attendances.checkin.strftime("%F") == Date.today.strftime("%F") 
+      @attendances = Attendance.create(attendances_params.merge(:checkin => Time.now))
+      if @attendances.persisted?
+        redirect_to root_path
+      end
+    else
+  
+      redirect_to root_path, :notice => "Ya hiciste el checkin"
+      
+    end 
+>>>>>>> improve checkin and checkout
   end
 
   def checkout
     @attendances = Attendance.find_by(attendances_params)
-    if @attendances.update(attendances_params.merge(:checkout => Time.now))
-     redirect_to root_path
+    if @attendances.nil? 
+      redirect_to root_path, :notice => "Debes hacer el checkin primero"
+    elsif @attendances.checkout.nil?
+      if @attendances.update(attendances_params.merge(:checkout => Time.now))
+        redirect_to root_path
+      end
+    else 
+      redirect_to root_path, :notice => "Ya hiciste el checkout"
     end
   end  
 
