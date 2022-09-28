@@ -37,7 +37,6 @@ class AttendancesController < ApplicationController
     else
       redirect_to root_path, :notice => "Ya hiciste el checkin"  
     end 
->>>>>>> improve checkin and checkout
   end
 
   def checkout
