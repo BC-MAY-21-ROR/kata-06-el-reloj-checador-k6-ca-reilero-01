@@ -3,7 +3,7 @@
   border-radius: 11px;
   color: $white;
   font-family: "Inter";
-  font-size: 30px;
+  font-size: 1.3rem;
   height: 60px;
   position: absolute;
   text-align: center;
@@ -19,6 +19,18 @@
   font-size: 15px;
 }
 
-.new_Employees{
+.new_Employees {
   margin-left: 46%;
+}
+
+.button_login {
+  left: 1000px;
+}
+
+.button_admin {
+  left: 700px;
+}
+
+.button_off {
+  left: 900px;
 }

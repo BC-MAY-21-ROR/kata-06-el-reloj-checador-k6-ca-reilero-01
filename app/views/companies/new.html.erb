@@ -1,1 +1,5 @@
-<%= render partial: 'form', locals: {message: 'Crear sucursal'}  %>
+<% if user_signed_in? && current_user.admin==true %>
+  <%= render partial: 'form', locals: {message: 'Crear sucursal'}  %>
+<% else %>
+  "No esta autorizado"
+<% end %>
