@@ -11,13 +11,25 @@ class AttendancesController < ApplicationController
 
   def create
     if params[:commit] == "check-in" 
+      if exist_params == true
       checkin
     end
-    if params[:commit] == "check-out"
-      checkout
-    end 
-
   end
+    if params[:commit] == "check-out"
+      if exist_params == true
+      checkout
+      end
+    end 
+  end
+
+  def exist_params
+    begin
+      @employee = Employee.find(attendances_params[:employee_id])
+      return true
+    rescue  => e
+      redirect_to root_path, :notice => 'El ID no existe'
+    end  
+  end  
 
   def set_variables
     @find_attendances = Attendance.find_by(attendances_params)
