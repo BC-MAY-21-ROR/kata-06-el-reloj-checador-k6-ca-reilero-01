@@ -1,0 +1,26 @@
+<% if signed_in? && current_user.admin==true %>
+<h1 class="title_empl">Report</h1>
+<div class="container_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="row" >Employee_id</th> 
+        <th scope="row" >checkin</th>
+        <th scope="row" >checkout</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @attendances.each do |attendance| %>
+        <tr>
+          <td class="title"><%= attendance.checkin.strftime("%F %H:%M:%S") if attendance.checkin.present?  %></td>
+          <td class="title"><%=  attendance.checkout.strftime("%F %H:%M:%S") if attendance.checkout.present?  %></td>
+          <td ></td>
+          <td class="title"><%= attendance.employee_id %></td>
+        </tr> 
+        <%end%>
+      </tr>
+  </tbody>
+</table>
+</div>
+<%end%>
