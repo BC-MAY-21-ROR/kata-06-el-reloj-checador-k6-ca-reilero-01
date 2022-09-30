@@ -61,7 +61,21 @@ class AttendancesController < ApplicationController
     else 
       redirect_to root_path, :notice => "Ya hiciste el checkout"
     end
-  end  
+  end
+
+
+  def filter
+    if params[:commit] == "filtrar"
+      attendance_day
+    end
+  end
+
+  def attendance_day   
+    @attendance = Attendance.where(:employee_id,checkin:date)
+
+  end
+  
+  
 
   private
   def attendances_params

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :companies
   resources :employees
   resources :attendances
+  resources :reports
 
-  get '/admin', to: 'admin#index'
 
   root 'home#index'
 end
