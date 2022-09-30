@@ -79,3 +79,4 @@ end
 
 # bootstrap
 gem 'bootstrap'
+gem 'ransack'

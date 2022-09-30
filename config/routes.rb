@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :attendances
   resources :reports
 
+  get '/admin', to: 'admin#index'
+  get '/month', :to => 'attendances#month'
 
   root 'home#index'
 end

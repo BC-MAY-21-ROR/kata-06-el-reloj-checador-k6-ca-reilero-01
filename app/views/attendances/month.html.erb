@@ -1,8 +1,8 @@
-<h1>Assistencia</h1>
+<h1>Assistencia mensual</h1>
 <% if signed_in? && current_user.admin==true %>
 <h1 class="title_empl">Report</h1>
 
-<%= search_form_for @q, url: :attendances do |f|%>
+<%= search_form_for @q, url: :month do |f|%>
    <div class="form-container">
     <div class="form-group">
       <div class="col-md-8 form-sub">
@@ -13,9 +13,15 @@
     </div> 
       <div class="form-group">
       <div class="col-md-8 form-sub">
-        <%= f.label 'created' %>
-        <%= f.search_field :created_at_eq%>
-      </div>     
+        <%= f.label 'desde' %>
+        <%= f.search_field :created_at_gteq%>
+      </div>
+      <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'hasta' %>
+        <%= f.search_field :created_at_lteq%>
+      </div>
+    </div>        
     <div class="form-group">
       <div class="col-md-12 text-center" >
         <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>

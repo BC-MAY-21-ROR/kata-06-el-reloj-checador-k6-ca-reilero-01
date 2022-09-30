@@ -1,10 +1,19 @@
 # frozen_string_literal: true
 
 class AttendancesController < ApplicationController
+
   def index
-    @attendances = Attendaces.all
+    @q = Attendance.ransack(params[:q])
+    @attendances = @q.result(distinct: true)
   end
-  
+
+  def show; end
+
+  def month
+    @q = Attendance.ransack(params[:q])
+    @attendances = @q.result(distinct: true)
+  end  
+
   def new
     @attendances = Attendance.new
   end 
