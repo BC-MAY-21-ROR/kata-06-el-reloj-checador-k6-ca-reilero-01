@@ -1,0 +1,21 @@
+<%= form_with scope: :attendance, url: attendances_path, method: :post do |f| %>
+  <div class="form-container">
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'id de empleado' %>
+        <%= collection_select(:attendance, :employee_id, Employee.all , :id, :name, {}, {:multiple => false}) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'fecha' %>
+        <%= collection_select(:attendance, :checkin, Attendance.all , :checkin, :checkin, {}, {:multiple => false}) %>
+      </div>
+    </div>      
+    <div class="form-group">
+      <div class="col-md-12 text-center" >
+        <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>
+      </div>
+    </div> 
+  </div>
+<%end%>

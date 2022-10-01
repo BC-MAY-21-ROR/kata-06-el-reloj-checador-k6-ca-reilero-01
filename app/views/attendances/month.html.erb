@@ -21,6 +21,12 @@
         <%= f.label 'hasta' %>
         <%= f.search_field :created_at_lteq%>
       </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-8 form-sub">
+        <%= f.label 'hasta' %>
+        <%= f.search_field :updated_at_null%>
+      </div>
     </div>        
     <div class="form-group">
       <div class="col-md-12 text-center" >
@@ -38,6 +44,7 @@
         <th scope="row" >Employee_id</th> 
         <th scope="row" >checkin</th>
         <th scope="row" >checkout</th>
+
       </tr>
     </thead>
     <tbody>
@@ -54,4 +61,21 @@
   </tbody>
 </table>
 </div>
+<div class="container_table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="row" >Attendance</th>
+        <th scope="row" >Absence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="title"><%=  @asistencias  %></td>
+        <td class="title"><%=  20 - @asistencias   %></td> 
+      </tr>
+  </tbody>
+</table>
+</div>
 <%end%>
+

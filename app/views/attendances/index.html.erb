@@ -41,8 +41,8 @@
           <td class="title"><%= attendance.employee_id %></td>
           <td class="title"><%= attendance.created_at  %></td>
           <td class="title"><%= attendance.checkin if attendance.checkin.present?  %></td>
-          <td class="title"><%=  attendance.checkout if attendance.checkout.present?  %></td>         
-        </tr> 
+          <td class="title"><%= attendance.checkout if attendance.checkout.present?  %></td>
+        </tr>
         <%end%>
       </tr>
   </tbody>

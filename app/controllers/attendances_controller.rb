@@ -5,6 +5,7 @@ class AttendancesController < ApplicationController
   def index
     @q = Attendance.ransack(params[:q])
     @attendances = @q.result(distinct: true)
+    
   end
 
   def show; end
@@ -12,6 +13,7 @@ class AttendancesController < ApplicationController
   def month
     @q = Attendance.ransack(params[:q])
     @attendances = @q.result(distinct: true)
+    @asistencias = @q.result.count
   end  
 
   def new
@@ -80,8 +82,7 @@ class AttendancesController < ApplicationController
   end
 
   def attendance_day   
-    @attendance = Attendance.where(:employee_id,checkin:date)
-
+    
   end
   
   
