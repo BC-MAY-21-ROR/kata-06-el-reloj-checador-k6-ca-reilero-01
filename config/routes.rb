@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin#index'
   get '/month', :to => 'attendances#month'
+  get "/average", :to=> 'attendances#average'
 
   root 'home#index'
 end

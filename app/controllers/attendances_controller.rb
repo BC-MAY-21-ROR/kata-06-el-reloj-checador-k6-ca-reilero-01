@@ -16,6 +16,13 @@ class AttendancesController < ApplicationController
     @asistencias = @q.result.count
   end  
 
+  def average
+    @average = Attendance.ransack(params[:q])
+    @attendances = @average.result(distinct: true)
+    @asistencias = @average.result.count
+
+  end
+
   def new
     @attendances = Attendance.new
   end 
@@ -24,8 +31,8 @@ class AttendancesController < ApplicationController
     if params[:commit] == "check-in" 
       if exist_params == true
       checkin
+      end
     end
-  end
     if params[:commit] == "check-out"
       if exist_params == true
       checkout
@@ -43,7 +50,7 @@ class AttendancesController < ApplicationController
   end  
 
   def set_variables
-    @find_attendances = Attendance.find_by(attendances_params)
+    @find_attendances = Attendance.where(attendances_params, :id => 61)
   end  
 
   def check_attendance
@@ -77,12 +84,14 @@ class AttendancesController < ApplicationController
 
   def filter
     if params[:commit] == "filtrar"
-      attendance_day
+      month
     end
   end
 
-  def attendance_day   
-    
+  def filter_average   
+    if params[:commit] == "filtrar_2"
+      average
+    end
   end
   
   
