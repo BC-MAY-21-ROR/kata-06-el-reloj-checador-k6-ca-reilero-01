@@ -3,6 +3,9 @@
     <h1 class="admin-title">Panel de Administrador</h1>
     <%=button_to 'Ver Sucursales', '/companies',method: :get, class: 'button_e admin_button'%>
     <%=button_to 'Ver Empleados', '/employees',method: :get, class: 'button_e admin_button'%>
+    <%=button_to 'Ver Reportes asistencia diaria', '/attendances',method: :get, class: 'button_e admin_button'%>
+    <%=button_to 'Ver Reportes ausencia mensual', '/month',method: :get, class: 'button_e admin_button'%>
+    <%=button_to 'Ver Reportes promedio de horas trabajadas', '/average',method: :get, class: 'button_e admin_button'%>
   </div>
 <% else %>
   "No esta autorizado"

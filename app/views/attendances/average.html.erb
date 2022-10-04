@@ -1,5 +1,5 @@
 <% if signed_in? && current_user.admin==true %>
-  <h1 class="title_empl">Tiempo promedio de trabajo</h1>
+  <h1 class="title_empl"> Promedio de horas trabajadas</h1>
 
   <%= search_form_for @average, url: :average do |f|%>
     <div class="form-container">
@@ -12,13 +12,13 @@
      
       <div class="form-group">
         <div class="col-md-8 form-sub">
-          <%= f.label 'created' %>
+          <%= f.label 'Desde' %>
           <%= f.search_field :created_at_eq%>
         </div>
       </div>
       <div class="form-group">
         <div class="col-md-8 form-sub">
-          <%= f.label 'hasta' %>
+          <%= f.label 'Hasta' %>
           <%= f.search_field :created_at_lteq%>
         </div>
       </div>
@@ -44,8 +44,8 @@
           <% @attendances.each do |attendance| %>
           <tr>
             <td class="title"><%= attendance.employee_id %></td>
-            <td class="title"><%= attendance.checkin if attendance.checkin.present?  %></td>
-            <td class="title"><%= attendance.checkout if attendance.checkout.present?  %></td>
+            <td class="title"><%= attendance.checkin.strftime("%F %H:%M:%S") if attendance.checkin.present?  %></td>
+            <td class="title"><%= attendance.checkout.strftime("%F %H:%M:%S") if attendance.checkout.present?  %></td>
           </tr>
           <%end%>
         </tr>
@@ -70,7 +70,7 @@
           <% @attendances.each do |attendance| %>
           <tr>
             <td><%= attendance.employee_id%>
-            <td><%= attendance.created_at.strftime("%Y:%b:%w")%></td>
+            <td><%= attendance.created_at.strftime("%w : %b : %Y")%></td>
             
             <% if attendance.checkout.nil? %>
               <td>check incompleto</td>
@@ -100,7 +100,7 @@
   </table>
  
   </div>
-  <h3 class="title_empl">Promedio mes</h3>
+  <h3 class="title_empl">Promedio de horas trabajadas al mes</h3>
   <% @total_mes = @total_mes/@contador%>
   <% @total_h = @total_mes/3600%>  
   <% @modulo = @total_mes%3600%>
@@ -108,4 +108,7 @@
   <% @modulo= @total_mes%60%>
   <% @total_s=@modulo%>
   <h4 class="title_empl"><%="#{@total_h}:#{@total_m}:#{@total_s}"%></h4>
+  </br>
+  </br>
+  </br>
 <%end%>

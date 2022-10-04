@@ -1,20 +1,20 @@
 <% if signed_in? && current_user.admin==true %>
-<h1 class="title_empl">Reporte</h1>
+<h1 class="title_empl">Reporte de asistencia diaria</h1>
 
 <%= search_form_for @q, url: :attendances do |f|%>
-   <div class="form-container">
+  <div class="form-container">
     <div class="form-group">
       <div class="col-md-8 form-sub">
         <%= f.label 'id de empleado' %>
         <%= f.search_field :employee_id_eq %>
       </div>
-    </div>
     </div> 
-      <div class="form-group">
+    <div class="form-group">
       <div class="col-md-8 form-sub">
-        <%= f.label 'created' %>
+        <%= f.label 'Fecha' %>
         <%= f.search_field :created_at_eq%>
-      </div>     
+      </div>  
+    </div>   
     <div class="form-group">
       <div class="col-md-12 text-center" >
         <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>
@@ -38,8 +38,8 @@
         <% @attendances.each do |attendance| %>
         <tr>
           <td class="title"><%= attendance.employee_id %></td>
-          <td class="title"><%= attendance.checkin.strftime("%F") if attendance.checkin.present?  %></td>
-          <td class="title"><%= attendance.checkout if attendance.checkout.present?  %></td>
+          <td class="title"><%= attendance.checkin.strftime("%F %H:%M:%S") if attendance.checkin.present?  %></td>
+          <td class="title"><%= attendance.checkout.strftime("%F %H:%M:%S") if attendance.checkout.present?  %></td>
         </tr>
         <%end%>
       </tr>

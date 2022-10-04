@@ -1,6 +1,5 @@
-<h1>Asistencia mensual</h1>
 <% if signed_in? && current_user.admin==true %>
-<h1 class="title_empl">Reporte de asistencia</h1>
+<h1 class="title_empl">Reporte de ausencia mensual</h1>
 
 <%= search_form_for @q, url: :month do |f|%>
   <div class="form-container">
