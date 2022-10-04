@@ -1,33 +1,27 @@
-<h1>Assistencia mensual</h1>
+<h1>Asistencia mensual</h1>
 <% if signed_in? && current_user.admin==true %>
-<h1 class="title_empl">Report</h1>
+<h1 class="title_empl">Reporte de asistencia</h1>
 
 <%= search_form_for @q, url: :month do |f|%>
-   <div class="form-container">
+  <div class="form-container">
     <div class="form-group">
       <div class="col-md-8 form-sub">
         <%= f.label 'id de empleado' %>
         <%= f.search_field :employee_id_eq %>
       </div>
     </div>
-    </div> 
-      <div class="form-group">
+    <div class="form-group">
       <div class="col-md-8 form-sub">
         <%= f.label 'desde' %>
         <%= f.search_field :created_at_gteq%>
-      </div>
-      <div class="form-group">
-      <div class="col-md-8 form-sub">
-        <%= f.label 'hasta' %>
-        <%= f.search_field :created_at_lteq%>
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-8 form-sub">
         <%= f.label 'hasta' %>
-        <%= f.search_field :updated_at_null%>
+        <%= f.search_field :created_at_lteq%>
       </div>
-    </div>        
+    </div>       
     <div class="form-group">
       <div class="col-md-12 text-center" >
         <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>
@@ -41,7 +35,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="row" >Employee_id</th> 
+        <th scope="row" >Id de empleado</th> 
         <th scope="row" >checkin</th>
         <th scope="row" >checkout</th>
 
@@ -49,28 +43,33 @@
     </thead>
     <tbody>
       <tr>
+        <%@asistencias = 0%>
         <% @attendances.each do |attendance| %>
         <tr>
           <td class="title"><%= attendance.employee_id %></td>
           <td class="title"><%= attendance.checkin if attendance.checkin.present?  %></td>
-          <td class="title"><%=  attendance.checkout if attendance.checkout.present?  %></td>         
+          <td class="title"><%=  attendance.checkout if attendance.checkout.present?  %></td>
+          <%if attendance.checkout.nil?%>
+          <%else%>    
+            <%@asistencias += 1%>  
+          <%end%>   
         </tr> 
         <%end%>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
 <div class="container_table">
   <table class="table">
     <thead>
       <tr>
-        <th scope="row" >Attendance</th>
-        <th scope="row" >Absence</th>
+        <th scope="row" >Asistencia</th>
+        <th scope="row" >Faltas</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="title"><%=  @asistencias  %></td>
+        <td class="title"><%=   @asistencias %></td>
         <td class="title"><%=  20 - @asistencias   %></td> 
       </tr>
   </tbody>

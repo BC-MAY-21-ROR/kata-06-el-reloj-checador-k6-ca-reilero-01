@@ -1,5 +1,5 @@
 <% if signed_in? && current_user.admin==true %>
-<h1 class="title_empl">Report</h1>
+<h1 class="title_empl">Reporte</h1>
 
 <%= search_form_for @q, url: :attendances do |f|%>
    <div class="form-container">
@@ -28,7 +28,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="row" >Employee_id</th> 
+        <th scope="row" >Id de empleado</th> 
         <th scope="row" >checkin</th>
         <th scope="row" >checkout</th>
       </tr>

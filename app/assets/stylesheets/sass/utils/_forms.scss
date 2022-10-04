@@ -6,11 +6,22 @@
   padding: 10px;
 }
 
+.form-group {
+  align-content: space-around;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.form-sub {
+  text-align: center;
+}
+
 .button_new {
   margin-top: 400px;
   right: 44rem;
 }
 
-.form-title{
+.form-title {
   padding-left: 8rem;
 }

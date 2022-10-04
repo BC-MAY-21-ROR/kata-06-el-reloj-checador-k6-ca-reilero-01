@@ -19,8 +19,6 @@ class AttendancesController < ApplicationController
   def average
     @average = Attendance.ransack(params[:q])
     @attendances = @average.result(distinct: true)
-    @asistencias = @average.result.count
-
   end
 
   def new
@@ -90,7 +88,7 @@ class AttendancesController < ApplicationController
   end
 
   def filter_average   
-    if params[:commit] == "filtrar_2"
+    if params[:commit] == "filtrar"
       average
     end
   end

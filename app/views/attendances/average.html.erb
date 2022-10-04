@@ -1,5 +1,5 @@
 <% if signed_in? && current_user.admin==true %>
-  <h1 class="title_empl">Average Time</h1>
+  <h1 class="title_empl">Tiempo promedio de trabajo</h1>
 
   <%= search_form_for @average, url: :average do |f|%>
     <div class="form-container">
@@ -9,23 +9,24 @@
           <%= f.search_field :employee_id_eq %>
         </div>
       </div>
-    </div> 
-    <div class="form-group">
-      <div class="col-md-8 form-sub">
-        <%= f.label 'created' %>
-        <%= f.search_field :created_at_eq%>
+     
+      <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'created' %>
+          <%= f.search_field :created_at_eq%>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-8 form-sub">
-        <%= f.label 'hasta' %>
-        <%= f.search_field :created_at_lteq%>
+      <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'hasta' %>
+          <%= f.search_field :created_at_lteq%>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-12 text-center" >
-          <%= f.submit 'filtrar_2', class:"btn btn-primary btn-lg m-5" %>
-        </div> 
+      <div class="form-group">
+          <div class="col-md-12 text-center" >
+            <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>
+          </div> 
+      </div>
     </div>
   <%end%>
 
@@ -33,7 +34,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="row" >Employee_id</th> 
+          <th scope="row" >Id de empleado</th> 
           <th scope="row" >checkin</th>
           <th scope="row" >checkout</th>
         </tr>
@@ -54,14 +55,14 @@
 
 
   <div class="container_table">
-    <% @total_mes = 0%>
+    <%@total_mes = 0%>
     <%@contador=0%>
     <table class="table">
       <thead>
         <tr>
-          <th scope="row">employee_id</th>
-          <th scope="row">day</th>
-          <th scope="row">Average day</th> 
+          <th scope="row">Id de empleado</th>
+          <th scope="row">dia</th>
+          <th scope="row">Promedio del día</th> 
         </tr>
       </thead>
       <tbody>
@@ -99,12 +100,12 @@
   </table>
  
   </div>
-  <h3 class="title_empl">Average month</h3>
+  <h3 class="title_empl">Promedio mes</h3>
   <% @total_mes = @total_mes/@contador%>
   <% @total_h = @total_mes/3600%>  
   <% @modulo = @total_mes%3600%>
   <% @total_m=@modulo/60%>
   <% @modulo= @total_mes%60%>
   <% @total_s=@modulo%>
-  <%="#{@total_h}:#{@total_m}:#{@total_s}"%>
+  <h4 class="title_empl"><%="#{@total_h}:#{@total_m}:#{@total_s}"%></h4>
 <%end%>
