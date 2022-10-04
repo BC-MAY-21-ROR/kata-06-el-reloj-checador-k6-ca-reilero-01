@@ -50,16 +50,16 @@ class AttendancesController < ApplicationController
   end  
 
   def set_variables
-    @find_attendances = Attendance.where(attendances_params, :id => 61)
+    @find_attendances = Attendance.find_by(attendances_params)
   end  
 
   def check_attendance
     set_variables.nil? || set_variables.checkin.strftime("%F") != Date.today.strftime("%F") 
-
   end  
 
   def checkin 
-    if check_attendance 
+    @attendances = Attendance.find_by(attendances_params)
+    if @attendances.nil? || @attendances.checkin.strftime("%F") == Date.today.strftime("%F") 
       @attendances = Attendance.create(attendances_params.merge(:checkin => Time.now))
       if @attendances.persisted?
         redirect_to root_path, :notice => "Checkin realizado correctamente"
