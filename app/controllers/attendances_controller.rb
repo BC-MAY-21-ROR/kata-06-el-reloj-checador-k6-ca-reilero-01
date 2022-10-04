@@ -50,17 +50,17 @@ class AttendancesController < ApplicationController
   end  
 
   def set_variables
-    @find_attendances = Attendance.find_by(attendances_params)
+    @find_attendances = Attendance.where(attendances_params).last
   end  
 
   def check_attendance
-    set_variables.nil? || set_variables.checkin.strftime("%F") != Date.today.strftime("%F") 
+    set_variables.nil? || set_variables.checkin.strftime("%F") != Time.current.strftime("%F") 
   end  
 
   def checkin 
-    @attendances = Attendance.find_by(attendances_params)
-    if @attendances.nil? || @attendances.checkin.strftime("%F") == Date.today.strftime("%F") 
-      @attendances = Attendance.create(attendances_params.merge(:checkin => Time.now))
+    @attendances = Attendance.where(attendances_params).last
+    if @attendances.nil? || @attendances.checkin.strftime("%F") != Time.current.strftime("%F")
+      @attendances = Attendance.create(attendances_params.merge(:checkin => Time.current))
       if @attendances.persisted?
         redirect_to root_path, :notice => "Checkin realizado correctamente"
       end
@@ -70,10 +70,11 @@ class AttendancesController < ApplicationController
   end
 
   def checkout
-    if set_variables.nil? 
+    @attendances = Attendance.where(attendances_params).last
+    if @attendances.nil? 
       redirect_to root_path, :notice => "Debes hacer el checkin primero"
-    elsif set_variables.checkout.nil?
-      if set_variables.update(attendances_params.merge(:checkout => Time.now))
+    elsif @attendances.checkout.nil? || @attendances.checkout.strftime("%F") != Time.current.strftime("%F") 
+      if @attendances.update(attendances_params.merge(:checkout => Time.current))
         redirect_to root_path, :notice => "Checkout realizado correctamente"
       end
     else 
