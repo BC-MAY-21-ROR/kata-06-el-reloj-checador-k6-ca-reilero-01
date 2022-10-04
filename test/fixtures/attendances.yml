@@ -14,3 +14,8 @@ three:
   checkin: 2022-09-09 19:28:59
   checkout: 2022-09-09 19:28:59
   employee: three
+
+four:
+  checkin: 2022-09-10 19:48:59
+  checkout: 2022-09-10 20:18:59
+  employee: one

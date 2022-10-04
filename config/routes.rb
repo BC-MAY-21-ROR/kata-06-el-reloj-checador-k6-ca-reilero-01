@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :companies
   resources :employees
   resources :attendances
+  resources :reports
 
   get '/admin', to: 'admin#index'
+  get '/month', :to => 'attendances#month'
+  get "/average", :to=> 'attendances#average'
 
   root 'home#index'
 end

@@ -1,0 +1,114 @@
+<% if signed_in? && current_user.admin==true %>
+  <h1 class="title_empl"> Promedio de horas trabajadas</h1>
+
+  <%= search_form_for @average, url: :average do |f|%>
+    <div class="form-container">
+      <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'id de empleado' %>
+          <%= f.search_field :employee_id_eq %>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'Desde' %>
+          <%= f.search_field :created_at_eq%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-8 form-sub">
+          <%= f.label 'Hasta' %>
+          <%= f.search_field :created_at_lteq%>
+        </div>
+      </div>
+      <div class="form-group">
+          <div class="col-md-12 text-center" >
+            <%= f.submit 'filtrar', class:"btn btn-primary btn-lg m-5" %>
+          </div> 
+      </div>
+    </div>
+  <%end%>
+
+  <div class="container_table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row" >Id de empleado</th> 
+          <th scope="row" >checkin</th>
+          <th scope="row" >checkout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @attendances.each do |attendance| %>
+          <tr>
+            <td class="title"><%= attendance.employee_id %></td>
+            <td class="title"><%= attendance.checkin.strftime("%F %H:%M:%S") if attendance.checkin.present?  %></td>
+            <td class="title"><%= attendance.checkout.strftime("%F %H:%M:%S") if attendance.checkout.present?  %></td>
+          </tr>
+          <%end%>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+  <div class="container_table">
+    <%@total_mes = 0%>
+    <%@contador=0%>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row">Id de empleado</th>
+          <th scope="row">dia</th>
+          <th scope="row">Promedio del día</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @attendances.each do |attendance| %>
+          <tr>
+            <td><%= attendance.employee_id%>
+            <td><%= attendance.created_at.strftime("%w : %b : %Y")%></td>
+            
+            <% if attendance.checkout.nil? %>
+              <td>check incompleto</td>
+            <%else%> 
+              <% @h_i=attendance.checkin.strftime("%H").to_i*3600%>
+              <% @m_i=attendance.checkin.strftime("%M").to_i*60%>
+              <% @s_i=attendance.checkin.strftime("%S").to_i%>
+              <% @total_i=@h_i+@m_i+@s_i%>
+              <% @h_f=attendance.checkout.strftime("%H").to_i*3600%>
+              <% @m_f=attendance.checkout.strftime("%M").to_i*60%>
+              <% @s_f=attendance.checkout.strftime("%S").to_i%>
+              <% @total_f=@h_f+@m_f+@s_f%>
+              <% @total_d=@total_f-@total_i%>
+              <% @total_mes= @total_d+@total_mes%>
+              <% @total_h=@total_d/3600%>  
+              <% @modulo= @total_d%3600%>
+              <% @total_m=@modulo/60%>
+              <% @modulo= @total_d%60%>
+              <% @total_s=@modulo%>
+              <% @contador += 1%>
+              <td><%= "#{@total_h}:#{@total_m}:#{@total_s}" %></td>
+            <%end%>
+          </tr>
+          <%end%>
+        </tr>
+    </tbody>
+  </table>
+ 
+  </div>
+  <h3 class="title_empl">Promedio de horas trabajadas al mes</h3>
+  <% @total_mes = @total_mes/@contador%>
+  <% @total_h = @total_mes/3600%>  
+  <% @modulo = @total_mes%3600%>
+  <% @total_m=@modulo/60%>
+  <% @modulo= @total_mes%60%>
+  <% @total_s=@modulo%>
+  <h4 class="title_empl"><%="#{@total_h}:#{@total_m}:#{@total_s}"%></h4>
+  </br>
+  </br>
+  </br>
+<%end%>
