@@ -8,4 +8,5 @@ class Employee < ApplicationRecord
   validates_numericality_of :private_number, message: 'Error Message'
 
   belongs_to :company
+  has_many :attendance, dependent: :destroy
 end
